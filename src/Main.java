@@ -4,18 +4,22 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Random random = new Random();
-        int liczba = random.nextInt(100);
-        boolean poprawnaLiczba = false;
 
         Scanner scanner = new Scanner(System.in);
+        boolean poprawnaLiczba = false;
+        System.out.println("Podaj liczbę definiującą koniec zakresu losowanych liczb");
+        int zakres = scanner.nextInt();
+        Random random = new Random();
+        int liczba = random.nextInt(zakres);
+
+
         System.out.println("Podaj ile prób chcesz maksymalnie wykonać");
         int liczbaProb = scanner.nextInt();
 
 
         for (int i = 0; i < liczbaProb; i++) {
             try {
-                System.out.println("Podaj liczbę z zakresu 0-100 którą wylosowałem \n Masz na to jeszcze " + (liczbaProb - i) + " prób.");
+                System.out.println("Podaj liczbę z zakresu 0-" + zakres + " którą wylosowałem \n Masz na to jeszcze " + (liczbaProb - i) + " prób.");
                 int zmienna = scanner.nextInt();
                 if (liczba == zmienna) {
                     System.out.println("Brawo! Liczba podana przez Ciebie: " + zmienna + " jest taka sama jak wylosowana przeze mnie liczba: " + liczba);
@@ -23,9 +27,9 @@ public class Main {
                     poprawnaLiczba = true;
                     break;
                 } else if (liczba > zmienna) {
-                    System.out.println("Twoja liczba ma za niską wartość");
+                    System.out.println("Twoja liczba " + zmienna + "ma za niską wartość");
                 } else {
-                    System.out.println("Twoja liczba ma za wysoką wartość");
+                    System.out.println("Twoja liczba " + zmienna + " ma za wysoką wartość");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Błąd: Niepoprawny format danych. Wprowadź poprawną liczbę.");
