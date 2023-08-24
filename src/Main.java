@@ -7,6 +7,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         boolean poprawnaLiczba = false;
+        int zmienna;
         System.out.println("Podaj liczbę definiującą koniec zakresu losowanych liczb");
         int zakres = scanner.nextInt();
         Random random = new Random();
@@ -19,9 +20,15 @@ public class Main {
 
         for (int i = 0; i < liczbaProb; i++) {
             try {
-                System.out.println("Podaj liczbę z zakresu 0-" + zakres + " którą wylosowałem \n Masz na to jeszcze " + (liczbaProb - i) + " prób.");
-                int zmienna = scanner.nextInt();
-                if (liczba == zmienna) {
+            if (i==0)
+            {
+                System.out.println("Podaj pierwszą liczbę z zakresu 0-" + zakres + " który wybrałeś \n Masz na to jeszcze " + (liczbaProb - i) + " prób.");
+            } else
+            {
+                System.out.println("Podaj kolejną liczbę z zakresu 0-" + zakres + " który wybrałeś \n Masz na to jeszcze " + (liczbaProb - i) + " prób.");
+            }
+            zmienna = scanner.nextInt();
+            if (liczba == zmienna) {
                     System.out.println("Brawo! Liczba podana przez Ciebie: " + zmienna + " jest taka sama jak wylosowana przeze mnie liczba: " + liczba);
                     System.out.println("Odgadłeś liczbę po: " + i + " próbach \n czyli za " + (i + 1) + " razem");
                     poprawnaLiczba = true;
