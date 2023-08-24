@@ -30,7 +30,7 @@ public class Main {
             zmienna = scanner.nextInt();
             if (liczba == zmienna) {
                     System.out.println("Brawo! Liczba podana przez Ciebie: " + zmienna + " jest taka sama jak wylosowana przeze mnie liczba: " + liczba);
-                    System.out.println("Odgadłeś liczbę po: " + i + " próbach \n czyli za " + (i + 1) + " razem");
+                    System.out.println("Odgadłeś liczbę po: " + i + " nieudanych próbach \n czyli za " + (i + 1) + " razem");
                     poprawnaLiczba = true;
                     break;
                 } else if (liczba > zmienna) {
