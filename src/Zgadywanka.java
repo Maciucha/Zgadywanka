@@ -1,9 +1,30 @@
+import javax.swing.*;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Main {
+public class Zgadywanka extends JFrame {
+
+    public Zgadywanka(){
+        JLabel lZakres, lLiczbaProb;
+        setSize(400,200);
+        setTitle("Zgaduj zgadula");
+        setLayout(null);
+
+        lZakres = new JLabel("Podaj zakres od 0 do....");
+        lZakres.setBounds(50,50,100,20);
+        add(lZakres);
+        lLiczbaProb = new JLabel("Podaj liczbę prób");
+        lLiczbaProb.setBounds(50,80,100,20);
+        add(lLiczbaProb);
+
+    }
+
     public static void main(String[] args) {
+
+        Zgadywanka zgadywanka = new Zgadywanka();
+        zgadywanka.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        zgadywanka.setVisible(true);
 
         Scanner scanner = new Scanner(System.in);
         boolean poprawnaLiczba = false;
