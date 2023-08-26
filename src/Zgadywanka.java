@@ -8,8 +8,8 @@ import java.util.Scanner;
 
 public class Zgadywanka extends JFrame implements ActionListener {
 
-    private int  zakres, liczbaProb;
-    private JTextField tZakres, tLiczbaProb;
+    private final JTextField tZakres;
+    private final JTextField tLiczbaProb;
 
     public Zgadywanka(){
 
@@ -55,13 +55,12 @@ public class Zgadywanka extends JFrame implements ActionListener {
         zgadywanka.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         zgadywanka.setVisible(true);
 
-
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-    zakres = Integer.parseInt(tZakres.getText());
-    liczbaProb = Integer.parseInt(tLiczbaProb.getText());
+        int zakres = Integer.parseInt(tZakres.getText());
+        int liczbaProb = Integer.parseInt(tLiczbaProb.getText());
 
         Scanner scanner = new Scanner(System.in);
         boolean poprawnaLiczba = false;
@@ -86,7 +85,7 @@ public class Zgadywanka extends JFrame implements ActionListener {
                     poprawnaLiczba = true;
                     break;
                 } else if (liczba > zmienna) {
-                    System.out.println("Twoja liczba " + zmienna + "ma za niską wartość");
+                    System.out.println("Twoja liczba " + zmienna + " ma za niską wartość");
                 } else {
                     System.out.println("Twoja liczba " + zmienna + " ma za wysoką wartość");
                 }
@@ -97,6 +96,14 @@ public class Zgadywanka extends JFrame implements ActionListener {
         }
         if (!poprawnaLiczba) {
             System.out.println("Niestety, nie udało się odgadnąć liczby w ustalonych: " + liczbaProb + " próbach. Wylosowana liczba to: " + liczba);
+            dispose();
+
+            JFrame oknoZgadywania = new JFrame();
+            oknoZgadywania.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            oknoZgadywania.setSize(450,150);
+            oknoZgadywania.setTitle("Jak myślisz, jaką cyfrę wylosowałem?");
+            oknoZgadywania.setLayout(null);
+            oknoZgadywania.setVisible(true);
         }
     }
 }
