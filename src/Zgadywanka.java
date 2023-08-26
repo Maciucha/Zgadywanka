@@ -5,14 +5,18 @@ import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
+
 public class Zgadywanka extends JFrame implements ActionListener {
+
+    private int  zakres, liczbaProb;
+    private JTextField tZakres, tLiczbaProb;
 
     public Zgadywanka(){
 
         JLabel lInfo, lZakres, lLiczbaProb, lSprawdz;
         JTextField tZakres, tLiczbaProb, tSprawdz ;
         JButton bSprawdz, bZatwierdz;
-        int zakres, liczbaProb;
+
 
         setSize(450,150);
         setTitle("Zgaduj zgadula - jaką cyfrę wylosowałem?");
@@ -97,6 +101,7 @@ public class Zgadywanka extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+    zakres = Integer.parseInt(tZakres.getText());
+    liczbaProb = Integer.parseInt(tLiczbaProb.getText());
     }
 }
