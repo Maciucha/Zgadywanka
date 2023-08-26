@@ -11,10 +11,12 @@ public class Zgadywanka extends JFrame implements ActionListener {
     private final JTextField tZakres;
     private final JTextField tLiczbaProb;
 
+    private JButton bSprawdz, bZatwierdz;
+
     public Zgadywanka(){
 
         JLabel lInfo, lZakres, lLiczbaProb, lSprawdz;
-        JButton bSprawdz, bZatwierdz;
+
 
         setSize(450,150);
         setTitle("Zgaduj zgadula - jaką cyfrę wylosowałem?");
@@ -75,9 +77,16 @@ public class Zgadywanka extends JFrame implements ActionListener {
         oknoZgadywania.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         oknoZgadywania.setSize(450,150);
         oknoZgadywania.setTitle("Jak myślisz, jaką cyfrę wylosowałem?");
+
+        bSprawdz = new JButton("Sprawdź");
+        bSprawdz.setBounds(265, 70, 100, 20);
+        oknoZgadywania.add(bSprawdz); // a buttona ni ma :/
+        bSprawdz.addActionListener(this);
+
         oknoZgadywania.setLayout(null);
         oknoZgadywania.setVisible(true);
-        
+
+
         for (int i = 0; i < liczbaProb; i++) {
             try {
                 if (i==0)
