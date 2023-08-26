@@ -16,7 +16,6 @@ public class Zgadywanka extends JFrame implements ActionListener {
         JLabel lInfo, lZakres, lLiczbaProb, lSprawdz;
         JButton bSprawdz, bZatwierdz;
 
-
         setSize(450,150);
         setTitle("Zgaduj zgadula - jaką cyfrę wylosowałem?");
         setLayout(null);
@@ -47,6 +46,7 @@ public class Zgadywanka extends JFrame implements ActionListener {
         add (bZatwierdz);
         bZatwierdz.addActionListener(this);
 
+
     }
 
     public static void main(String[] args) {
@@ -68,6 +68,15 @@ public class Zgadywanka extends JFrame implements ActionListener {
 
         Random random = new Random();
         int liczba = random.nextInt(zakres);
+
+        dispose();
+
+        JFrame oknoZgadywania = new JFrame();
+        oknoZgadywania.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        oknoZgadywania.setSize(450,150);
+        oknoZgadywania.setTitle("Jak myślisz, jaką cyfrę wylosowałem?");
+        oknoZgadywania.setLayout(null);
+        oknoZgadywania.setVisible(true);
         
         for (int i = 0; i < liczbaProb; i++) {
             try {
@@ -96,14 +105,6 @@ public class Zgadywanka extends JFrame implements ActionListener {
         }
         if (!poprawnaLiczba) {
             System.out.println("Niestety, nie udało się odgadnąć liczby w ustalonych: " + liczbaProb + " próbach. Wylosowana liczba to: " + liczba);
-            dispose();
-
-            JFrame oknoZgadywania = new JFrame();
-            oknoZgadywania.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            oknoZgadywania.setSize(450,150);
-            oknoZgadywania.setTitle("Jak myślisz, jaką cyfrę wylosowałem?");
-            oknoZgadywania.setLayout(null);
-            oknoZgadywania.setVisible(true);
         }
     }
 }
